@@ -1,42 +1,283 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+:root {
+    --color-text: #232323;
+    --color-background: #FFFBF5;
+    --color-accent: #EC9BAD;
+    --color-accent2: #434B92;
+    --color-accentLight: #FBE3E3;
+    --fontFamily-standard: "Source Sans 3", sans-serif;
+    --fontFamily-header: "Bevan", serif;
+    --fontSize-header1: 2rem;
+    --fontSize-header2: 1.5rem;
+    --fontSize-header3: 2rem;
+    --fontSize-main: 1rem;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body.dark-mode {
+    --color-text: #F5F6F7;
+    --color-background: #121212;
+    --color-accent: #844242;
+    --color-accent2: #844242;
+    --color-accentLight: #b05858;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+* {
+    margin: 0;
+    padding: 0pt;
+    font-family: var(--fontFamily-standard);
+    color: var(--color-text);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+body{
+    margin: 0;
+    background: var(--color-background);
+}
+.banner {
+    align-items: center;
+    background-color: var(--color-accent);
+    padding: 20px;
+    gap: 30px;
 }
 
-.card {
-  padding: 2em;
+.banner nav{
+    width:40vw;
+    list-style: none;
+    text-align: center;
+    align-items: center;
+    gap: 20px;
+    font-size: var(--fontSize-main);
 }
 
-.read-the-docs {
-  color: #888;
+.banner Link{
+    padding:15px;
+    font-weight:bold;
+}
+@media only screen and (min-width: 801px) {
+    .banner {display: flex;}
+    .banner nav { display: flex; justify-content:left;}
+}
+@media only screen and (max-width: 800px) {
+    .banner{
+        display:block;
+        margin:auto;
+    }
+    .banner nav{
+        display:flex;
+        width:50%;
+        justify-content:space-between;
+        margin:0 auto;
+    }
+}
+
+.navdark {display:flex;}
+
+.navdark label {
+    justify-content:right;
+    accent-color:var(--color-accentLight);
+}
+
+main{
+    margin:0 auto;
+    padding: 20px;
+    height: 100%;
+}
+@media only screen and (min-width: 710px) {
+    main{width: clamp(700px, 70vw, 1400px);}
+}
+@media only screen and (max-width: 710px) {
+    main{ width:90%; }
+}
+
+h1, h2 {
+    text-align: center;
+    font-family: var(--fontFamily-header);
+    padding:0 2em;
+}
+
+/* Home Page */
+
+.inputs{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    accent-color: var(--color-accent);
+    margin: 2em;
+}
+.inputs h2{
+    font-size:var(--fontSize-header2);
+}
+
+.inputs form{
+    font-size:var(--fontSize-main);
+    width: clamp(300px, 30vw, 2000px);
+    display: flex;
+    justify-content:space-between;
+}
+
+.button{
+    display:flex;
+    font-weight: bold;
+    justify-content: center;
+    font-size: var(--fontSize-header2);
+    background-color: var(--color-accent2);
+    color: var(--color-background);
+    border-radius: 10px;
+    padding:20px;
+    margin: 5vh auto;
+}
+.button a, .button button{
+    color: var(--color-background);
+    text-decoration:none;
+}
+.button a:hover, .button button:hover{
+    text-decoration:underline;
+}
+button{
+    background-color: transparent;
+    border: none;
+    font-size: var(--fontSize-header2);
+}
+
+@media only screen and (min-width: 711px) {
+    .button{ width: 20em; }
+}
+@media only screen and (max-width: 710px) {
+    .inputs{ grid-template-columns: 1fr; }
+    .inputs *{ grid-column: auto; }
+    .button{ width: 70vw; }
+}
+
+dl{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1em;
+    align-items:center;
+    justify-content:center;
+}
+
+.simpleList{
+    list-style: circle;
+    padding: .5em 2em;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.centered{
+    display:flex;
+    justify-content:center;
+}
+
+.emphasisContainer{
+    height: 35em;
+    position: relative;
+    margin: 0 auto;
+}
+
+@media only screen and (min-width: 711px) {
+    .emphasisContainer{ width: clamp(639px, 80vw, 950px); }
+}
+@media only screen and (max-width: 710px) {
+    .emphasisContainer{ width: 90%; }
+}
+
+.emphasis{
+    position:absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index:1;
+}
+
+.recipeCard{
+    position:absolute;
+    inset:1.5em;
+
+    color: var(--color-text);
+    border: medium solid var(--color-text);
+    background-color: var(--color-background);
+
+    overflow:scroll;
+    z-index:2;
+    padding: 1em;
+    box-sizing:border-box;
+}
+
+.flex{display:flex; justify-content:center; margin:auto; align-items:center;}
+
+.recipeCard:hover{ background-color: var(--color-accentLight); }
+
+.recipeCard h1{ font-size: 1.75rem; }
+
+.recipeCard h2{ font-size: 1.5rem; }
+
+
+/* Account */
+.accountTitle{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+}
+
+.accountTitle img{
+    justify-content: center;
+    align-items: center;
+    height: 10em;
+    width: 10em;
+    object-fit: cover;
+    margin:0 auto;
+}
+
+
+/* NewRecipe */
+.favorite * { color: var(--color-accent); }
+
+input::placeholder { color: var(--color-text); opacity: 0.6; }
+
+.puttingIN{
+      display: flex;
+      justify-content:center;
+      gap:10vw;
+      list-style: none;
+}
+
+.input_dropdown * {display:inline;}
+
+.input_dropdown select, .input_list button, .input_list ul, .newRecipe input{
+      background:var(--color-accentLight);
+      border:none;
+      padding:5px 20px;
+      border-radius: 10px;
+      margin:5px 10px;
+      font-size:var(--fontSize-main);
+}
+
+.grid hr{
+    border: none;
+    height: 3px;
+    background-color: var(--color-accentLight);
+    width: 50%;
+    margin: 0 auto 1em auto;
+}
+
+.grid h2{
+    justify-content:center;
+    margin: 1em auto 0 auto;
+}
+
+.input_list ul{ height: 30vh; }
+
+@media only screen and (min-width: 801px) {
+    .grid h2, .grid hr, .puttingIN { grid-column: 1 / span 2;}
+}
+
+@media only screen and (max-width: 800px) {
+    .puttingIN{ flex-direction:column; margin:0 auto; }
+    .grid{ grid-template-columns: 1fr; }
+    .input_list{  grid-column:1; width:90vw; }
 }

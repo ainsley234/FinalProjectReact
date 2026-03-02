@@ -1,0 +1,1 @@
+export const foodTypeLabels = ["🤷‍♀️", "Salad", "Soup", "Pasta", "Bowl"];
